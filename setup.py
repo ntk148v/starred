@@ -11,10 +11,10 @@ with open(path.join(this_directory, 'README.md')) as f:
 setup(
     name='starred',
     version=VERSION,
-    url='https://github.com/maguowei/starred',
+    url='https://github.com/ntk148v/starred',
     license='MIT',
-    author='maguowei',
-    author_email='imaguowei@gmail.com',
+    author='ntk148v',
+    author_email='intk148v@gmail.com',
     keywords='GitHub starred',
     description='creating your own Awesome List used GitHub stars!',
     long_description=long_description,

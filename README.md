@@ -1,19 +1,21 @@
 # Starred
 
-[![github workflow](https://github.com/maguowei/starred/workflows/ci/badge.svg)](https://github.com/maguowei/starred/actions)
-![Upload Python Package](https://github.com/maguowei/starred/workflows/Upload%20Python%20Package/badge.svg)
+[![github workflow](https://github.com/ntk148v/starred/workflows/ci/badge.svg)](https://github.com/ntk148v/starred/actions)
+![Upload Python Package](https://github.com/ntk148v/starred/workflows/Upload%20Python%20Package/badge.svg)
 
 ## Install
 
 ```bash
 
-$ pip install starred
-$ starred --username maguowei --sort > README.md
+$ pip install git+https://github.com/ntk148v/starred.git
+$ starred --username ntk148v --sort > README.md
 ```
 
 ## Usage
 
 ```bash
+$ starred --help
+
 $ starred --help
 
 Usage: starred [OPTIONS]
@@ -22,16 +24,17 @@ Usage: starred [OPTIONS]
 
     creating your own Awesome List used GitHub stars!
 
-    example:     starred --username maguowei --sort > README.md
+    example:     starred --username ntk148v --sort > README.md
 
 Options:
-    --username TEXT    GitHub username
-    --token TEXT       GitHub token
-    --sort             sort by language
-    --repository TEXT  repository name
-    --message TEXT     commit message
-    --version          Show the version and exit.
-    --help             Show this message and exit.
+    --username TEXT        GitHub username
+    --token TEXT           GitHub token
+    --sort                 sort by language
+    --repository TEXT      repository name
+    --message TEXT         commit message
+    --format [table|list]  output repository information format. Table by default.
+    --version              Show the version and exit.\
+    --help                 Show this message and exit.
 ```
 
 ## Demo
@@ -42,8 +45,8 @@ $ export GITHUB_TOKEN=yourtoken
 $ starred --username yourname --repository awesome-stars --sort
 ```
 
-- [`maguowei/awesome-stars`](https://github.com/maguowei/awesome-stars)
-- [update awesome-stars every day by GitHub Action](https://github.com/maguowei/awesome-stars/blob/master/.github/workflows/schedules.yml) the example with GitHub Action
+- [`ntk148v/awesome-stars`](https://github.com/ntk148v/awesome-stars)
+- [update awesome-stars every day by GitHub Action](https://github.com/ntk148v/awesome-stars/blob/master/.github/workflows/schedules.yml) the example with GitHub Action
 
 ## FAQ
 
@@ -53,15 +56,15 @@ $ starred --username yourname --repository awesome-stars --sort
 
 2. Why do I need a token?
 
-   -  For unauthenticated requests, the rate limit is 60 requests per
-      hour.
-      see [Github Api Rate
-      Limiting](https://developer.github.com/v3/#rate-limiting)
-   -  The token must be passed together when you want to automatically
-      create the repository.
+   - For unauthenticated requests, the rate limit is 60 requests per
+     hour.
+     see [Github Api Rate
+     Limiting](https://developer.github.com/v3/#rate-limiting)
+   - The token must be passed together when you want to automatically
+     create the repository.
 
 3. Install the master branch version
 
-    ```bash
-    $ pip install -e git+https://github.com/maguowei/starred#egg=starred
-    ```
+   ```bash
+   $ pip install -e git+https://github.com/ntk148v/starred#egg=starred
+   ```

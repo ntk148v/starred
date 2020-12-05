@@ -6,8 +6,9 @@ name = "pypi"
 [packages]
 click = "*"
 "github3.py" = "*"
+pytablewriter = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
