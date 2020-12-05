@@ -94,7 +94,8 @@ def starred(username, token, sort, repository, message, format):
     click.echo('')
 
     for language in repo_dict:
-        click.echo('## {} \n'.format(language.replace('#', '# #')))
+        click.echo('## {} ({})\n'.format(language.replace('#', '# #'),
+                                         repo_num_dict[language]))
         if format == 'table':
             writer = MarkdownTableWriter(
                 headers=['Index', 'Name', 'Repository URL', 'Description'],
