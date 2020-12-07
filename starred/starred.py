@@ -100,7 +100,7 @@ def starred(username, token, sort, repository, message, format):
                 headers=['Index', 'Name', 'Repository URL', 'Description'],
                 value_matrix=repo_dict[language],
                 margin=1)
-            writer.write_table()
+            click.echo(writer.dumps())
         else:
             for repo in repo_dict[language]:
                 data = u'{}. [{}]({}) - {}'.format(*repo)
