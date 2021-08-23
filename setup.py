@@ -14,7 +14,7 @@ setup(
     url='https://github.com/ntk148v/starred',
     license='MIT',
     author='ntk148v',
-    author_email='intk148v@gmail.com',
+    author_email='ntk148v@gmail.com',
     keywords='GitHub starred',
     description='creating your own Awesome List used GitHub stars!',
     long_description=long_description,
