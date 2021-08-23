@@ -1,7 +1,7 @@
 # Starred
 
-[![github workflow](https://github.com/ntk148v/starred/workflows/ci/badge.svg)](https://github.com/ntk148v/starred/actions)
-![Upload Python Package](https://github.com/ntk148v/starred/workflows/Upload%20Python%20Package/badge.svg)
+[![ci](https://github.com/ntk148v/starred/actions/workflows/ci.yml/badge.svg)](https://github.com/ntk148v/starred/actions/workflows/ci.yml)
+[![Upload Python Package](https://github.com/ntk148v/starred/actions/workflows/deploy.yml/badge.svg)](https://github.com/ntk148v/starred/actions/workflows/deploy.yml)
 
 ## Install
 
