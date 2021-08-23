@@ -68,6 +68,7 @@ def starred(username, token, sort, repository, message, format):
         file = None
 
     gh = GitHub(token=token)
+    user = gh.user(username)
     stars = gh.starred_by(username)
     click.echo(desc)
     repo_dict = {}
@@ -113,12 +114,13 @@ def starred(username, token, sort, repository, message, format):
         try:
             rep = gh.repository(username, repository)
             readme = rep.readme()
-            readme.update(message, file.getvalue())
+            readme.update(message, file.getvalue(), author={'name': user.name, 'email': user.email})
         except NotFoundError:
             rep = gh.create_repository(
                 repository, 'A curated list of my GitHub stars!')
             rep.create_file(
-                'README.md', 'starred initial commit', file.getvalue())
+                'README.md', 'starred initial commit', file.getvalue(),
+                author={'name': user.name, 'email': user.email})
         click.launch(rep.html_url)
 
 
