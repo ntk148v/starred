@@ -82,7 +82,8 @@ def starred(username, token, sort, repository, message, format):
         if language not in repo_dict:
             repo_dict[language] = []
             repo_num_dict[language] = 1
-        repo_dict[language].append([repo_num_dict[language], s.name, s.html_url, description.strip()])
+        repo_dict[language].append(
+            [repo_num_dict[language], s.name, s.html_url, description.strip()])
         repo_num_dict[language] += 1
 
     if sort:
@@ -114,7 +115,8 @@ def starred(username, token, sort, repository, message, format):
         try:
             rep = gh.repository(username, repository)
             readme = rep.readme()
-            readme.update(message, file.getvalue(), author={'name': user.name, 'email': user.email})
+            readme.update(message, file.getvalue(), author={
+                          'name': user.name, 'email': user.email})
         except NotFoundError:
             rep = gh.create_repository(
                 repository, 'A curated list of my GitHub stars!')

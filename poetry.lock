@@ -1,4 +1,16 @@
 [[package]]
+name = "autopep8"
+version = "1.6.0"
+description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pycodestyle = ">=2.8.0"
+toml = "*"
+
+[[package]]
 name = "certifi"
 version = "2021.5.30"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -179,6 +191,14 @@ python-versions = ">=3.5"
 test = ["allpairspy", "click", "faker", "pytest (>=6.0.1)", "pytest-discord (>=0.0.6)", "pytest-md-report (>=0.0.12)"]
 
 [[package]]
+name = "pycodestyle"
+version = "2.8.0"
+description = "Python style guide checker"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
 name = "pycparser"
 version = "2.20"
 description = "C parser in Python"
@@ -223,7 +243,7 @@ from = ["pytablereader (>=0.30.0,<2)"]
 html = ["dominate (>=2.1.5,<3)"]
 logging = ["loguru (>=0.4.1,<1)"]
 sqlite = ["SimpleSQLite (>=1.1.3,<2)"]
-test = ["XlsxWriter (>=0.9.6,<2)", "SimpleSQLite (>=1.1.3,<2)", "pytablereader (>=0.30.0,<2)", "pytest-md-report (>=0.1)", "pytest-discord (>=0.0.5)", "dominate (>=2.1.5,<3)", "loguru (>=0.4.1,<1)", "toml (>=0.9.3,<1)", "tablib", "elasticsearch (>=7.0.5,<8)", "pytest (>=6.0.1)", "sqliteschema", "xlwt", "pytablereader[sqlite,excel] (>=0.29)", "PyYAML (>=3.11,<6)", "simplejson (>=3.8.1,<4)", "pytablewriter-altrow-theme (>=0.0.2,<1)"]
+test = ["XlsxWriter (>=0.9.6,<2)", "SimpleSQLite (>=1.1.3,<2)", "pytablereader (>=0.30.0,<2)", "pytest-md-report (>=0.1)", "pytest-discord (>=0.0.5)", "dominate (>=2.1.5,<3)", "loguru (>=0.4.1,<1)", "toml (>=0.9.3,<1)", "tablib", "elasticsearch (>=7.0.5,<8)", "pytest (>=6.0.1)", "sqliteschema", "xlwt", "pytablereader[excel,sqlite] (>=0.29)", "PyYAML (>=3.11,<6)", "simplejson (>=3.8.1,<4)", "pytablewriter-altrow-theme (>=0.0.2,<1)"]
 theme = ["pytablewriter-altrow-theme (>=0.0.2,<1)"]
 toml = ["toml (>=0.9.3,<1)"]
 yaml = ["PyYAML (>=3.11,<6)"]
@@ -301,6 +321,14 @@ python-versions = ">=3.6"
 test = ["pytest", "pytest-md-report (>=0.1)"]
 
 [[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "dev"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "typepy"
 version = "1.2.0"
 description = "typepy is a Python library for variable type checker/validator/converter at a run time."
@@ -350,9 +378,13 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "e12c1c4523e61bcd5baa2a777ee9ec65fe118bd8fa5af237350de5d34817ffe7"
+content-hash = "f32ea4285bb978d414829d6101651c813e93d340d0009b83a32de076f16baa77"
 
 [metadata.files]
+autopep8 = [
+    {file = "autopep8-1.6.0-py2.py3-none-any.whl", hash = "sha256:ed77137193bbac52d029a52c59bec1b0629b5a186c495f1eb21b126ac466083f"},
+    {file = "autopep8-1.6.0.tar.gz", hash = "sha256:44f0932855039d2c15c4510d6df665e4730f2b8582704fa48f9c55bd3e17d979"},
+]
 certifi = [
     {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
     {file = "certifi-2021.5.30.tar.gz", hash = "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"},
@@ -468,6 +500,10 @@ pathvalidate = [
     {file = "pathvalidate-2.4.1-py3-none-any.whl", hash = "sha256:f5dde7efeeb4262784c5e1331e02752d07c1ec3ee5ea42683fe211155652b808"},
     {file = "pathvalidate-2.4.1.tar.gz", hash = "sha256:3c9bd94c7ec23e9cfb211ffbe356ae75f979d6c099a2c745ee9490f524f32468"},
 ]
+pycodestyle = [
+    {file = "pycodestyle-2.8.0-py2.py3-none-any.whl", hash = "sha256:720f8b39dde8b293825e7ff02c475f3077124006db4f440dcbc9a20b76548a20"},
+    {file = "pycodestyle-2.8.0.tar.gz", hash = "sha256:eddd5847ef438ea1c7870ca7eb78a9d47ce0cdb4851a5523949f2601d0cbbe7f"},
+]
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
@@ -503,6 +539,10 @@ tabledata = [
 tcolorpy = [
     {file = "tcolorpy-0.1.1-py3-none-any.whl", hash = "sha256:93107beffe11a93d24488d512169220d7560c15732276356ab1b3ff7107ba639"},
     {file = "tcolorpy-0.1.1.tar.gz", hash = "sha256:33abe296af468582a2c4d4666761ee58a38935601699a61fb148f576cf648af8"},
+]
+toml = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
 typepy = [
     {file = "typepy-1.2.0-py3-none-any.whl", hash = "sha256:d3cdabcabf1b6058ccaac1c7ef6a097ec3901a3a3ff79b0a038d8496b3900805"},
