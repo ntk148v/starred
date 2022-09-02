@@ -68,12 +68,12 @@ python-versions = ">=3.6"
 cffi = ">=1.12"
 
 [package.extras]
-docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx-rtd-theme"]
-docstest = ["doc8", "pyenchant (>=1.6.11)", "twine (>=1.12.0)", "sphinxcontrib-spelling (>=4.0.1)"]
+docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx_rtd_theme"]
+docstest = ["doc8", "pyenchant (>=1.6.11)", "sphinxcontrib-spelling (>=4.0.1)", "twine (>=1.12.0)"]
 pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
 sdist = ["setuptools-rust (>=0.11.4)"]
 ssh = ["bcrypt (>=3.1.5)"]
-test = ["pytest (>=6.0)", "pytest-cov", "pytest-subtests", "pytest-xdist", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+test = ["hypothesis (>=1.11.4,!=3.79.2)", "iso8601", "pretend", "pytest (>=6.0)", "pytest-cov", "pytest-subtests", "pytest-xdist", "pytz"]
 
 [[package]]
 name = "dataproperty"
@@ -92,36 +92,18 @@ logging = ["loguru (>=0.4.1,<1)"]
 test = ["pytest (>=6.0.1)", "pytest-md-report (>=0.1)", "termcolor"]
 
 [[package]]
-name = "deprecated"
-version = "1.2.12"
-description = "Python @deprecated decorator to deprecate old python classes, functions or methods."
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[package.dependencies]
-wrapt = ">=1.10,<2"
-
-[package.extras]
-dev = ["tox", "bump2version (<1)", "sphinx (<2)", "importlib-metadata (<3)", "importlib-resources (<4)", "configparser (<5)", "sphinxcontrib-websupport (<2)", "zipp (<2)", "PyTest (<5)", "PyTest-Cov (<2.6)", "pytest", "pytest-cov"]
-
-[[package]]
 name = "github3.py"
-version = "1.3.0"
+version = "3.2.0"
 description = "Python wrapper for the GitHub API(http://developer.github.com/v3)"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-jwcrypto = ">=0.5.0"
+PyJWT = {version = ">=2.3.0", extras = ["crypto"]}
 python-dateutil = ">=2.6.0"
 requests = ">=2.18"
 uritemplate = ">=3.0.0"
-
-[package.extras]
-sni = ["pyopenssl", "ndg-httpsclient", "pyasn1"]
-test = ["betamax (>=0.8.0)", "pytest (>2.3.5)", "betamax-matchers (>=0.1.0)", "unittest2 (==0.5.1)", "mock"]
 
 [[package]]
 name = "idna"
@@ -130,18 +112,6 @@ description = "Internationalized Domain Names in Applications (IDNA)"
 category = "main"
 optional = false
 python-versions = ">=3.5"
-
-[[package]]
-name = "jwcrypto"
-version = "1.0"
-description = "Implementation of JOSE Web standards"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-cryptography = ">=2.3"
-deprecated = "*"
 
 [[package]]
 name = "mbstrdecoder"
@@ -207,6 +177,23 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
+name = "PyJWT"
+version = "2.4.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+cryptography = {version = ">=3.3.1", optional = true, markers = "extra == \"crypto\""}
+
+[package.extras]
+crypto = ["cryptography (>=3.3.1)"]
+dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.3.1)", "mypy", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx", "sphinx-rtd-theme", "zope.interface"]
+docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
+tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+
+[[package]]
 name = "pyparsing"
 version = "2.4.7"
 description = "Python parsing module"
@@ -227,23 +214,24 @@ DataProperty = ">=0.50.0,<2"
 mbstrdecoder = ">=1.0.0,<2"
 msgfy = ">=0.1.0,<1"
 pathvalidate = ">=2.3.0,<3"
+setuptools = ">=38.3.0"
 tabledata = ">=1.1.3,<2"
 tcolorpy = ">=0.0.5,<1"
 typepy = {version = ">=1.1.1,<2", extras = ["datetime"]}
 
 [package.extras]
-all = ["xlwt", "XlsxWriter (>=0.9.6,<2)", "elasticsearch (>=7.0.5,<8)", "pytablereader (>=0.30.0,<2)", "dominate (>=2.1.5,<3)", "loguru (>=0.4.1,<1)", "SimpleSQLite (>=1.1.3,<2)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "toml (>=0.9.3,<1)", "PyYAML (>=3.11,<6)", "simplejson (>=3.8.1,<4)"]
-docs = ["sphinx-rtd-theme", "Sphinx (>=2.4)"]
+all = ["PyYAML (>=3.11,<6)", "SimpleSQLite (>=1.1.3,<2)", "XlsxWriter (>=0.9.6,<2)", "dominate (>=2.1.5,<3)", "elasticsearch (>=7.0.5,<8)", "loguru (>=0.4.1,<1)", "pytablereader (>=0.30.0,<2)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "simplejson (>=3.8.1,<4)", "toml (>=0.9.3,<1)", "xlwt"]
+docs = ["Sphinx (>=2.4)", "sphinx-rtd-theme"]
 es = ["elasticsearch (>=7.0.5,<8)"]
 es5 = ["elasticsearch (>=5.5.3,<6)"]
 es6 = ["elasticsearch (>=6.3.1,<7)"]
 es7 = ["elasticsearch (>=7.0.5,<8)"]
-excel = ["xlwt", "XlsxWriter (>=0.9.6,<2)"]
+excel = ["XlsxWriter (>=0.9.6,<2)", "xlwt"]
 from = ["pytablereader (>=0.30.0,<2)"]
 html = ["dominate (>=2.1.5,<3)"]
 logging = ["loguru (>=0.4.1,<1)"]
 sqlite = ["SimpleSQLite (>=1.1.3,<2)"]
-test = ["XlsxWriter (>=0.9.6,<2)", "SimpleSQLite (>=1.1.3,<2)", "pytablereader (>=0.30.0,<2)", "pytest-md-report (>=0.1)", "pytest-discord (>=0.0.5)", "dominate (>=2.1.5,<3)", "loguru (>=0.4.1,<1)", "toml (>=0.9.3,<1)", "tablib", "elasticsearch (>=7.0.5,<8)", "pytest (>=6.0.1)", "sqliteschema", "xlwt", "pytablereader[excel,sqlite] (>=0.29)", "PyYAML (>=3.11,<6)", "simplejson (>=3.8.1,<4)", "pytablewriter-altrow-theme (>=0.0.2,<1)"]
+test = ["PyYAML (>=3.11,<6)", "SimpleSQLite (>=1.1.3,<2)", "XlsxWriter (>=0.9.6,<2)", "dominate (>=2.1.5,<3)", "elasticsearch (>=7.0.5,<8)", "loguru (>=0.4.1,<1)", "pytablereader (>=0.30.0,<2)", "pytablereader[excel,sqlite] (>=0.29)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "pytest (>=6.0.1)", "pytest-discord (>=0.0.5)", "pytest-md-report (>=0.1)", "simplejson (>=3.8.1,<4)", "sqliteschema", "tablib", "toml (>=0.9.3,<1)", "xlwt"]
 theme = ["pytablewriter-altrow-theme (>=0.0.2,<1)"]
 toml = ["toml (>=0.9.3,<1)"]
 yaml = ["PyYAML (>=3.11,<6)"]
@@ -284,6 +272,19 @@ urllib3 = ">=1.21.1,<1.27"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
+
+[[package]]
+name = "setuptools"
+version = "65.3.0"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mock", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
+testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
 name = "six"
@@ -343,8 +344,8 @@ python-dateutil = {version = ">=2.8.0,<3.0.0", optional = true, markers = "extra
 pytz = {version = ">=2018.9", optional = true, markers = "extra == \"datetime\""}
 
 [package.extras]
-datetime = ["python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)", "packaging"]
-test = ["pytest (>=6.0.1)", "tcolorpy", "python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)", "packaging"]
+datetime = ["packaging", "python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)"]
+test = ["packaging", "pytest (>=6.0.1)", "python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)", "tcolorpy"]
 
 [[package]]
 name = "uritemplate"
@@ -364,21 +365,13 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
-secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
-
-[[package]]
-name = "wrapt"
-version = "1.12.1"
-description = "Module for decorators, wrappers and monkey patching."
-category = "main"
-optional = false
-python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "f32ea4285bb978d414829d6101651c813e93d340d0009b83a32de076f16baa77"
+content-hash = "7de13400b5b8d0b74dd0478796cf05e245dfd540710fc2eb4b8b0cca4cd91f3b"
 
 [metadata.files]
 autopep8 = [
@@ -468,21 +461,13 @@ dataproperty = [
     {file = "DataProperty-0.52.0-py3-none-any.whl", hash = "sha256:b16885d394c2fa4a024f2e4318f9e387d909fd7e35d4cf6d1814c57d812fe21d"},
     {file = "DataProperty-0.52.0.tar.gz", hash = "sha256:8fda054fcc80f01e6c1c91e4853acd6982c99fdc91fb96f536d073c6ddaa2a5a"},
 ]
-deprecated = [
-    {file = "Deprecated-1.2.12-py2.py3-none-any.whl", hash = "sha256:08452d69b6b5bc66e8330adde0a4f8642e969b9e1702904d137eeb29c8ffc771"},
-    {file = "Deprecated-1.2.12.tar.gz", hash = "sha256:6d2de2de7931a968874481ef30208fd4e08da39177d61d3d4ebdf4366e7dbca1"},
-]
 "github3.py" = [
-    {file = "github3.py-1.3.0-py2.py3-none-any.whl", hash = "sha256:50833b5da35546b8cced0e8d7ff4c50a9afc2c8e46cc4d07dc4b66d26467c708"},
-    {file = "github3.py-1.3.0.tar.gz", hash = "sha256:15a115c18f7bfcf934dfef7ab103844eb9f620c586bad65967708926da47cbda"},
+    {file = "github3.py-3.2.0-py2.py3-none-any.whl", hash = "sha256:a9016e40609c6f5cb9954dd188d08257dafd09c4da8c0e830a033fca00054b0d"},
+    {file = "github3.py-3.2.0.tar.gz", hash = "sha256:09b72be1497d346b0968cde8360a0d6af79dc206d0149a63cd3ec86c65c377cc"},
 ]
 idna = [
     {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},
     {file = "idna-3.2.tar.gz", hash = "sha256:467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"},
-]
-jwcrypto = [
-    {file = "jwcrypto-1.0-py2.py3-none-any.whl", hash = "sha256:db93a656d9a7a35dda5a68deb5c9f301f4e60507d8aef1559e0637b9ac497137"},
-    {file = "jwcrypto-1.0.tar.gz", hash = "sha256:f88816eb0a41b8f006af978ced5f171f33782525006cdb055b536a40f4d46ac9"},
 ]
 mbstrdecoder = [
     {file = "mbstrdecoder-1.0.1-py3-none-any.whl", hash = "sha256:56b967800d6554815a6b18f98f915e84912852eff21d94d5e036fe124bc27f53"},
@@ -508,6 +493,10 @@ pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
 ]
+PyJWT = [
+    {file = "PyJWT-2.4.0-py3-none-any.whl", hash = "sha256:72d1d253f32dbd4f5c88eaf1fdc62f3a19f676ccbadb9dbc5d07e951b2b26daf"},
+    {file = "PyJWT-2.4.0.tar.gz", hash = "sha256:d42908208c699b3b973cbeb01a969ba6a96c821eefb1c5bfe4c390c01d67abba"},
+]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
@@ -527,6 +516,10 @@ pytz = [
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
     {file = "requests-2.26.0.tar.gz", hash = "sha256:b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"},
+]
+setuptools = [
+    {file = "setuptools-65.3.0-py3-none-any.whl", hash = "sha256:2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82"},
+    {file = "setuptools-65.3.0.tar.gz", hash = "sha256:7732871f4f7fa58fb6bdcaeadb0161b2bd046c85905dbaa066bdcbcc81953b57"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
@@ -555,7 +548,4 @@ uritemplate = [
 urllib3 = [
     {file = "urllib3-1.26.6-py2.py3-none-any.whl", hash = "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4"},
     {file = "urllib3-1.26.6.tar.gz", hash = "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"},
-]
-wrapt = [
-    {file = "wrapt-1.12.1.tar.gz", hash = "sha256:b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"},
 ]
