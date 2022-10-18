@@ -57,7 +57,7 @@ def html_escape(text):
               help='output repository information format')
 @click.version_option(version=VERSION, prog_name='starred')
 def starred(username, token, sort, topic, topic_limit,
-repository, filename, message, private, format):
+            repository, filename, message, private, format):
     """GitHub starred
 
     creating your own Awesome List by GitHub stars!
