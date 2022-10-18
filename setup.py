@@ -21,12 +21,13 @@ setup(
     long_description_content_type='text/markdown',
     packages=find_packages(),
     platforms='any',
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     install_requires=[
-        'setuptools-rust==0.12.1',
-        'click==7.1.2',
-        'github3.py==1.3.0',
-        'pytablewriter==0.58.0'
+        'click==8.1.3',
+        'requests==2.28.1',
+        'github3.py==3.2.0',
+        'gql==3.4.0',
+        'aiohttp==3.8.1',
     ],
     entry_points={
         'console_scripts': [
@@ -41,9 +42,9 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
 )
