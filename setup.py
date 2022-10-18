@@ -28,6 +28,7 @@ setup(
         'github3.py==3.2.0',
         'gql==3.4.0',
         'aiohttp==3.8.1',
+        'pytablewriter==0.64.2'
     ],
     entry_points={
         'console_scripts': [

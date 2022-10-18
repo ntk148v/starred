@@ -91,6 +91,14 @@ python-versions = "*"
 pycparser = "*"
 
 [[package]]
+name = "chardet"
+version = "5.0.0"
+description = "Universal encoding detector for Python 3"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "charset-normalizer"
 version = "2.1.1"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
@@ -138,6 +146,22 @@ pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
 sdist = ["setuptools-rust (>=0.11.4)"]
 ssh = ["bcrypt (>=3.1.5)"]
 test = ["pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-subtests", "pytest-xdist", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+
+[[package]]
+name = "dataproperty"
+version = "0.55.0"
+description = "Python library for extract property from data."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+mbstrdecoder = ">=1.0.0,<2"
+typepy = {version = ">=1.2.0,<2", extras = ["datetime"]}
+
+[package.extras]
+logging = ["loguru (>=0.4.1,<1)"]
+test = ["pytest (>=6.0.1)", "pytest-md-report (>=0.1)", "termcolor"]
 
 [[package]]
 name = "frozenlist"
@@ -201,12 +225,48 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "mbstrdecoder"
+version = "1.1.1"
+description = "multi-byte character string decoder"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+chardet = ">=3.0.4,<6"
+
+[package.extras]
+test = ["pytest-md-report (>=0.1)", "pytest (>=6.0.1)", "Faker (>=1.0.2)"]
+
+[[package]]
 name = "multidict"
 version = "6.0.2"
 description = "multidict implementation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "packaging"
+version = "21.3"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+
+[[package]]
+name = "pathvalidate"
+version = "2.5.2"
+description = "pathvalidate is a Python library to sanitize/validate a string such as filenames/file-paths/etc."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+test = ["allpairspy", "click", "faker", "pytest (>=6.0.1)", "pytest-discord (>=0.0.6)", "pytest-md-report (>=0.0.12)"]
 
 [[package]]
 name = "pycodestyle"
@@ -243,6 +303,48 @@ docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
 tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
 
 [[package]]
+name = "pyparsing"
+version = "3.0.9"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+category = "main"
+optional = false
+python-versions = ">=3.6.8"
+
+[package.extras]
+diagrams = ["railroad-diagrams", "jinja2"]
+
+[[package]]
+name = "pytablewriter"
+version = "0.64.2"
+description = "pytablewriter is a Python library to write a table in various formats: AsciiDoc / CSV / Elasticsearch / HTML / JavaScript / JSON / LaTeX / LDJSON / LTSV / Markdown / MediaWiki / NumPy / Excel / Pandas / Python / reStructuredText / SQLite / TOML / TSV / YAML."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+DataProperty = ">=0.55.0,<2"
+mbstrdecoder = ">=1.0.0,<2"
+pathvalidate = ">=2.3.0,<3"
+tabledata = ">=1.3.0,<2"
+tcolorpy = ">=0.0.5,<1"
+typepy = {version = ">=1.2.0,<2", extras = ["datetime"]}
+
+[package.extras]
+all = ["xlwt", "XlsxWriter (>=0.9.6,<4)", "elasticsearch (>=7.0.5,<8)", "pytablereader (>=0.31.3,<2)", "dominate (>=2.1.5,<3)", "loguru (>=0.4.1,<1)", "SimpleSQLite (>=1.1.3,<2)", "pytablewriter-altrow-theme (>=0.0.2,<1)", "toml (>=0.9.3,<1)", "PyYAML (>=3.11,<7)", "simplejson (>=3.8.1,<4)"]
+docs = ["sphinx-rtd-theme", "Sphinx (>=2.4)"]
+es = ["elasticsearch (>=7.0.5,<8)"]
+es7 = ["elasticsearch (>=7.0.5,<8)"]
+excel = ["xlwt", "XlsxWriter (>=0.9.6,<4)"]
+from = ["pytablereader (>=0.31.3,<2)"]
+html = ["dominate (>=2.1.5,<3)"]
+logging = ["loguru (>=0.4.1,<1)"]
+sqlite = ["SimpleSQLite (>=1.1.3,<2)"]
+test = ["pytest (>=6.0.1)", "pytablereader (>=0.31.3,<2)", "idna (<3)", "xlwt", "pytablewriter-altrow-theme (>=0.0.2,<1)", "loguru (>=0.4.1,<1)", "pytest-md-report (>=0.1)", "beautifulsoup4 (>=4.10)", "XlsxWriter (>=0.9.6,<4)", "tablib (>=3.2.0)", "elasticsearch (>=7.0.5,<8)", "dominate (>=2.1.5,<3)", "PyYAML (>=3.11,<7)", "simplejson (>=3.8.1,<4)", "sqliteschema (>=1.3.0)", "pytablereader[sqlite,excel] (>=0.31.3)", "toml (>=0.9.3,<1)", "SimpleSQLite (>=1.1.3,<2)"]
+theme = ["pytablewriter-altrow-theme (>=0.0.2,<1)"]
+toml = ["toml (>=0.9.3,<1)"]
+yaml = ["PyYAML (>=3.11,<7)"]
+
+[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -252,6 +354,14 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "pytz"
+version = "2022.4"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "requests"
@@ -280,12 +390,57 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "tabledata"
+version = "1.3.0"
+description = "tabledata is a Python library to represent tabular data. Used for pytablewriter/pytablereader/SimpleSQLite."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+DataProperty = ">=0.53.0,<2"
+typepy = ">=1.2.0,<2"
+
+[package.extras]
+test = ["pytest", "pytablewriter (>=0.46)"]
+logging = ["loguru (>=0.4.1,<1)"]
+
+[[package]]
+name = "tcolorpy"
+version = "0.1.2"
+description = "tcolopy is a Python library to apply true color for terminal text."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+test = ["pytest-md-report (>=0.1)", "pytest"]
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
 category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "typepy"
+version = "1.3.0"
+description = "typepy is a Python library for variable type checker/validator/converter at a run time."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+mbstrdecoder = ">=1.0.0,<2"
+packaging = {version = "*", optional = true, markers = "extra == \"datetime\""}
+python-dateutil = {version = ">=2.8.0,<3.0.0", optional = true, markers = "extra == \"datetime\""}
+pytz = {version = ">=2018.9", optional = true, markers = "extra == \"datetime\""}
+
+[package.extras]
+datetime = ["python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)", "packaging"]
+test = ["pytest (>=6.0.1)", "tcolorpy", "python-dateutil (>=2.8.0,<3.0.0)", "pytz (>=2018.9)", "packaging"]
 
 [[package]]
 name = "types-cryptography"
@@ -331,7 +486,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "a8d438f36ce15ad388445de71a7e1bd3666b1bb586e9c208eb240ad00f6452cc"
+content-hash = "084bdaeeda54aedf964a0467fdef013ddcbde9c009b6f1ad90663f47c31243a4"
 
 [metadata.files]
 aiohttp = []
@@ -342,6 +497,7 @@ autopep8 = []
 backoff = []
 certifi = []
 cffi = []
+chardet = []
 charset-normalizer = []
 click = [
     {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
@@ -352,27 +508,43 @@ colorama = [
     {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
 ]
 cryptography = []
+dataproperty = []
 frozenlist = []
 "github3.py" = []
 gql = []
 graphql-core = []
 idna = []
+mbstrdecoder = []
 multidict = []
+packaging = [
+    {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
+    {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
+]
+pathvalidate = []
 pycodestyle = []
 pycparser = []
 pyjwt = []
+pyparsing = []
+pytablewriter = []
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
 ]
+pytz = []
 requests = []
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
+tabledata = []
+tcolorpy = []
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
+typepy = [
+    {file = "typepy-1.3.0-py3-none-any.whl", hash = "sha256:cf1913982969cf6348152c4a5feec08e324addd99670999e57cdb3ad87a61e9a"},
+    {file = "typepy-1.3.0.tar.gz", hash = "sha256:96788530614083164993d1443959f6c58e6bb8e2da839812ddf462c203e4b84c"},
 ]
 types-cryptography = []
 uritemplate = []

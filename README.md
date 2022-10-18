@@ -1,7 +1,7 @@
 # Starred
 
-[![ci](https://github.com/maguowei/starred/actions/workflows/ci.yml/badge.svg)](https://github.com/maguowei/starred/actions/workflows/ci.yml)
-[![Upload Python Package](https://github.com/maguowei/starred/actions/workflows/deploy.yml/badge.svg)](https://github.com/maguowei/starred/actions/workflows/deploy.yml)
+[![ci](https://github.com/ntk148v/starred/actions/workflows/ci.yml/badge.svg)](https://github.com/ntk148v/starred/actions/workflows/ci.yml)
+[![Upload Python Package](https://github.com/ntk148v/starred/actions/workflows/deploy.yml/badge.svg)](https://github.com/ntk148v/starred/actions/workflows/deploy.yml)
 
 ## Install
 
@@ -61,12 +61,12 @@ $ starred --username yourname --repository awesome-stars --sort
   - https://github.com/topics/starred
   - https://github.com/topics/awesome-stars
 
-## Use [awesome-stars](https://github.com/maguowei/awesome-stars) as template
+## Use [awesome-stars](https://github.com/ntk148v/awesome-stars) as template
 
-The simple way to create an awesome-stars repository is to use [maguowei/awesome-stars](https://github.com/maguowei/awesome-stars/generate) as template.
+The simple way to create an awesome-stars repository is to use [ntk148v/awesome-stars](https://github.com/ntk148v/awesome-stars/generate) as template.
 It will auto update your awesome-stars repository every day by GitHub Action.
 
-1. Click [Create a new repository from awesome-stars](https://github.com/maguowei/awesome-stars/generate)
+1. Click [Create a new repository from awesome-stars](https://github.com/ntk148v/awesome-stars/generate)
 
 ![use-awesome-stars-as-template](imgs/use-awesome-stars-as-template.png)
 
@@ -84,7 +84,7 @@ click `Run workflow` button
 
 4. Customize the workflow schedule
 
-- [.github/workflows/schedules.yml#L5](https://github.com/maguowei/awesome-stars/blob/master/.github/workflows/schedules.yml#L5)
+- [.github/workflows/schedules.yml#L5](https://github.com/ntk148v/awesome-stars/blob/master/.github/workflows/schedules.yml#L5)
 
 ![schedule](imgs/schedule.png)
 
