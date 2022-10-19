@@ -94,19 +94,17 @@ def starred(username, token, sort, topic, topic_limit,
             :TEXT_LENGTH_LIMIT] if s.description else ''
 
         if topic:
-            for category in s.topics or [DEFAULT_CATEGORY.lower()]:
-                if category not in repo_dict:
-                    repo_dict[category] = []
-                    repo_num_dict[category] = 1
-                repo_dict[category].append([s.name, s.url, description])
-                repo_num_dict[category] += 1
+            topics = s.topics or [DEFAULT_CATEGORY.lower()]
         else:
-            category = s.language or DEFAULT_CATEGORY
+            topics = [s.language or DEFAULT_CATEGORY]
 
+        for category in topics:
             if category not in repo_dict:
                 repo_dict[category] = []
                 repo_num_dict[category] = 1
-            repo_dict[category].append([s.name, s.url, description])
+            repo_dict[category].append([repo_num_dict[category],
+                                        '[{}]({})'.format(s.name, s.url),
+                                        description])
             repo_num_dict[category] += 1
 
     if sort:
@@ -128,7 +126,7 @@ def starred(username, token, sort, topic, topic_limit,
             click.echo(writer.dumps())
         else:
             for repo in repo_dict[category]:
-                data = u'{}. [{}]({}) - {}'.format(*repo)
+                data = u'{}. {} - {}'.format(*repo)
                 click.echo(data)
         click.echo('')
 
@@ -136,6 +134,7 @@ def starred(username, token, sort, topic, topic_limit,
 
     if file:
         gh = GitHub(token=token)
+        user = gh.user(username)
         try:
             rep = gh.repository(username, repository)
             try:
