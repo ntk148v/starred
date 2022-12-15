@@ -15,7 +15,7 @@ aiohttp = "^3.8.1"
 pytablewriter = "^0.64.2"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "^1.6.0"
+autopep8 = "^2.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "setuptools"]
