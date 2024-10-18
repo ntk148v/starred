@@ -106,5 +106,12 @@ click `Run workflow` button
 3. Install the master branch version
 
    ```bash
+   $ poetry build
    $ pip install -e git+https://github.com/ntk148v/starred#egg=starred
+   ```
+
+4. Dev & RUN
+
+   ```bash
+   poetry run starred --help
    ```
